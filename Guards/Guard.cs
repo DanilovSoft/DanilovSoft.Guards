@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
 namespace DanilovSoft.Guards;
+
 public static class Guard
 {
     /// <exception cref="ArgumentOutOfRangeException"/>
