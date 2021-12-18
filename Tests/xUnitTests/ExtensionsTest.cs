@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DanilovSoft.Guards;
 using DanilovSoft.Guards.Extensions;
 using Xunit;
 
@@ -27,6 +22,6 @@ public class ExtensionsTest
 
     private static void MethodWithArgument(string testArg)
     {
-        testArg.NotNull();
+        testArg.ThrowIfNull();
     }
 }

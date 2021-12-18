@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DanilovSoft.Guard\DanilovSoft.Guards.csproj" />
+    <ProjectReference Include="..\..\Guards\DanilovSoft.Guards.csproj" />
   </ItemGroup>
 
 </Project>
