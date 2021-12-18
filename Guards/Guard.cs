@@ -9,7 +9,7 @@ public static class Guard
     /// <exception cref="ArgumentNullException"/>
     [DebuggerStepThrough]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void NotNull<T>([NotNull] T value, [CallerArgumentExpression("value")] string? paramName = null) 
+    public static void ThrowIfNull<T>([NotNull] T value, [CallerArgumentExpression("value")] string? paramName = null) 
         where T : notnull
     {
         if (value is not null)
@@ -22,14 +22,13 @@ public static class Guard
     /// <exception cref="ArgumentNullException"/>
     [DebuggerStepThrough]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static T AsNotNull<T>([NotNull] T value, [CallerArgumentExpression("value")] string? paramName = null) 
+    public static T NotNull<T>([NotNull] T value, [CallerArgumentExpression("value")] string? paramName = null) 
         where T : notnull
     {
-        if (value is not null)
+        if (value is null)
         {
-            return value;
+            ThrowHelper.ThrowArgumentNull(paramName);
         }
-        ThrowHelper.ThrowArgumentNull(paramName);
         return value;
     }
 

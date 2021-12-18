@@ -11,18 +11,13 @@ public static class GuardExtensions
     public static void ThrowIfNull<T>([NotNull] this T value, [CallerArgumentExpression("value")] string? paramName = null) 
         where T : notnull
     {
-        if (value is not null)
-        {
-            return;
-        }
-
-        ThrowHelper.ThrowArgumentNull(paramName);
+        Guard.ThrowIfNull(value, paramName);
     }
 
     /// <summary>Throws exception if <paramref name="value"/> turned out to be <see langword="null"/>.</summary>
     /// <exception cref="ArgumentNullException"/>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static T CheckNotNull<T>([NotNull] this T value, [CallerArgumentExpression("value")] string? paramName = null)
+    public static T NotNull<T>([NotNull] this T value, [CallerArgumentExpression("value")] string? paramName = null)
         where T : notnull
     {
         if (value is null)
@@ -36,9 +31,9 @@ public static class GuardExtensions
     /// <exception cref="ArgumentNullException"/>
     /// <exception cref="ArgumentOutOfRangeException"/>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void NotNullOrEmpty([NotNull] this string value, string? paramName = null)
+    public static void ThrowIfNotNullOrEmpty([NotNull] this string value, string? paramName = null)
     {
-        Guard.NotNull(value, paramName);
+        Guard.ThrowIfNull(value, paramName);
 
         if (value.Length != 0)
         {

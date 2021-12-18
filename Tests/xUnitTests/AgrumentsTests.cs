@@ -28,6 +28,6 @@ public class AgrumentsTests
 
     private static void MethodWithArgument(string testArg)
     {
-        Guard.NotNull(testArg);
+        Guard.ThrowIfNull(testArg);
     }
 }
