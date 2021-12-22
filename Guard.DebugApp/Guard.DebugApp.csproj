@@ -9,7 +9,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Guards\DanilovSoft.Guards.csproj" />
+	  <ProjectReference Include="..\Guards\DanilovSoft.Guards.csproj" />
 	</ItemGroup>
 
 </Project>

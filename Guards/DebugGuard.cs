@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿#define DEBUG
+
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
@@ -8,8 +10,7 @@ public static class DebugGuard
 {
     [Conditional("DEBUG")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void NotNull<T>([NotNull] T value, [CallerArgumentExpression("value")] string? paramName = null)
-        where T : notnull
+    public static void NotNull([NotNull] object? value, [CallerArgumentExpression("value")] string? paramName = null)
     {
         Debug.Assert(value is not null, $"Value cannot be null. (Parameter '{paramName}')");
     }

@@ -8,8 +8,7 @@ public static class GuardExtensions
     /// <summary>Throws exception if <paramref name="value"/> turned out to be <see langword="null"/>.</summary>
     /// <exception cref="ArgumentNullException"/>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ThrowIfNull<T>([NotNull] this T value, [CallerArgumentExpression("value")] string? paramName = null) 
-        where T : notnull
+    public static void ThrowIfNull([NotNull] this object? value, [CallerArgumentExpression("value")] string? paramName = null) 
     {
         Guard.ThrowIfNull(value, paramName);
     }
@@ -18,13 +17,12 @@ public static class GuardExtensions
     /// <exception cref="ArgumentNullException"/>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static T NotNull<T>([NotNull] this T value, [CallerArgumentExpression("value")] string? paramName = null)
-        where T : notnull
     {
-        if (value is null)
+        if (value is not null)
         {
-            ThrowHelper.ThrowArgumentNull(paramName);
+            return value;
         }
-        return value;
+        return ThrowHelper.ThrowArgumentNullReturn<T>(paramName);
     }
 
     /// <summary>Throws exception if <paramref name="value"/> turned out to be <see langword="null"/> or empty string.</summary>

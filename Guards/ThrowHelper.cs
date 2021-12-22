@@ -20,4 +20,12 @@ internal static class ThrowHelper
     {
         throw new ArgumentNullException(paramName);
     }
+
+    /// <exception cref="ArgumentNullException"/>
+    [DoesNotReturn]
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    public static T ThrowArgumentNullReturn<T>(string? paramName)
+    {
+        throw new ArgumentNullException(paramName);
+    }
 }

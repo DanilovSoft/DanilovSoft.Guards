@@ -1,5 +1,6 @@
 using System;
 using DanilovSoft.Guards;
+using DanilovSoft.Guards.Generated;
 using Xunit;
 
 namespace xUnitTests;

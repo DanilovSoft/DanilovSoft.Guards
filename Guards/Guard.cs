@@ -10,7 +10,6 @@ public static class Guard
     [DebuggerStepThrough]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void ThrowIfNull<T>([NotNull] T value, [CallerArgumentExpression("value")] string? paramName = null) 
-        where T : notnull
     {
         if (value is not null)
         {
@@ -22,14 +21,13 @@ public static class Guard
     /// <exception cref="ArgumentNullException"/>
     [DebuggerStepThrough]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static T NotNull<T>([NotNull] T value, [CallerArgumentExpression("value")] string? paramName = null) 
-        where T : notnull
+    public static T NotNull<T>([NotNull] T value, [CallerArgumentExpression("value")] string? paramName = null)
     {
-        if (value is null)
+        if (value is not null)
         {
-            ThrowHelper.ThrowArgumentNull(paramName);
+            return value;
         }
-        return value;
+        return ThrowHelper.ThrowArgumentNullReturn<T>(paramName);
     }
 
     /// <exception cref="ArgumentOutOfRangeException"/>

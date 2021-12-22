@@ -1,5 +1,6 @@
-﻿using DanilovSoft.Guards;
-using DanilovSoft.Guards.Extensions;
+﻿using DanilovSoft.Guards.Extensions;
+
+namespace Guard.DebugApp;
 
 public static class Program
 {
@@ -8,7 +9,7 @@ public static class Program
         TestMethod(null);
     }
 
-    public static void TestMethod(string arg)
+    public static void TestMethod(string? arg)
     {
         arg.AssertNotNull();
 

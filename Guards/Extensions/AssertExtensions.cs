@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿#define DEBUG
+
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 
@@ -8,17 +10,8 @@ public static class AssertExtensions
 {
     [Conditional("DEBUG")]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void AssertNotNull<T>([NotNull] this T value, [CallerArgumentExpression("value")] string? paramName = null)
-        where T : notnull
+    public static void AssertNotNull([NotNull] this object? value, [CallerArgumentExpression("value")] string? paramName = null)
     {
         DebugGuard.NotNull(value, paramName);
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static T AssertCheckNotNull<T>([NotNull] this T value, [CallerArgumentExpression("value")] string? paramName = null)
-        where T : notnull
-    {
-        DebugGuard.NotNull(value, paramName);
-        return value;
     }
 }
