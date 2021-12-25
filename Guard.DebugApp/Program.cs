@@ -6,10 +6,10 @@ public static class Program
 {
     static void Main()
     {
-        TestMethod(null);
+        TestMethod(null!);
     }
 
-    public static void TestMethod(string? arg)
+    public static void TestMethod(string arg)
     {
         arg.AssertNotNull();
 

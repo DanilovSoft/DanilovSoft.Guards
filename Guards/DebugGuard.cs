@@ -12,6 +12,6 @@ public static class DebugGuard
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void NotNull([NotNull] object? value, [CallerArgumentExpression("value")] string? paramName = null)
     {
-        Debug.Assert(value is not null, $"Value cannot be null. (Parameter '{paramName}')");
+        Debug.Assert(value is not null, "Parameter is null", "Parameter expected to be not null. (Parameter '{0}')", paramName);
     }
 }
