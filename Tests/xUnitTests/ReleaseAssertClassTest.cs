@@ -1,4 +1,5 @@
 ﻿#undef DEBUG
+
 using DanilovSoft.Guards.Extensions;
 using Xunit;
 

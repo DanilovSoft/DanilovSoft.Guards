@@ -29,7 +29,7 @@ public static class GuardExtensions
     /// <exception cref="ArgumentNullException"/>
     /// <exception cref="ArgumentOutOfRangeException"/>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void ThrowIfNotNullOrEmpty([NotNull] this string value, string? paramName = null)
+    public static void ThrowIfNullOrEmpty([NotNull] this string value, string? paramName = null)
     {
         Guard.ThrowIfNull(value, paramName);
 
