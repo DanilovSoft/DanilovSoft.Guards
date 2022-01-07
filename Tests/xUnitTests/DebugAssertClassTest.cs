@@ -1,6 +1,7 @@
 ﻿#define DEBUG
+
 using System;
-using DanilovSoft.Guards.Extensions;
+using DanilovSoft.Guards;
 using Xunit;
 
 namespace xUnitTests;
@@ -35,12 +36,12 @@ public class DebugAssertClassTest
 
     private static void TestMethod(string value)
     {
-        value.AssertNotNull();
+        DebugGuard.NotNull(value);
     }
 
     private static string TestMethodReturnValue(string? value)
     {
-        value.AssertNotNull();
+        DebugGuard.NotNull(value);
         return value;
     }
 }

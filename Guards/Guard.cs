@@ -7,7 +7,6 @@ namespace DanilovSoft.Guards;
 public static class Guard
 {
     /// <exception cref="ArgumentNullException"/>
-    [DebuggerStepThrough]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void ThrowIfNull<T>([NotNull] T value, [CallerArgumentExpression("value")] string? paramName = null) 
     {
@@ -19,7 +18,6 @@ public static class Guard
     }
 
     /// <exception cref="ArgumentNullException"/>
-    [DebuggerStepThrough]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static T NotNull<T>([NotNull] T value, [CallerArgumentExpression("value")] string? paramName = null)
     {
@@ -31,7 +29,6 @@ public static class Guard
     }
 
     /// <exception cref="ArgumentOutOfRangeException"/>
-    [DebuggerStepThrough]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void NotDefault<T>(T value, [CallerArgumentExpression("value")] string? paramName = null)
     {

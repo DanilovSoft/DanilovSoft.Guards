@@ -1,6 +1,6 @@
 ﻿#undef DEBUG
 
-using DanilovSoft.Guards.Extensions;
+using DanilovSoft.Guards;
 using Xunit;
 
 namespace xUnitTests;
@@ -22,12 +22,12 @@ public class ReleaseAssertClassTest
 
     private static void TestMethod(string value)
     {
-        value.AssertNotNull();
+        DebugGuard.NotNull(value);
     }
 
     private static string TestMethodReturnValue(string? value)
     {
-        value.AssertNotNull();
+        DebugGuard.NotNull(value);
         return value;
     }
 }

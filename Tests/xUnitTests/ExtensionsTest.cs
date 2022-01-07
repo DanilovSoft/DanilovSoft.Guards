@@ -1,5 +1,5 @@
 ﻿using System;
-using DanilovSoft.Guards.Extensions;
+using DanilovSoft.Guards;
 using Xunit;
 
 namespace xUnitTests;
@@ -22,6 +22,6 @@ public class ExtensionsTest
 
     private static void MethodWithArgument(string testArg)
     {
-        testArg.ThrowIfNull();
+        Guard.ThrowIfNull(testArg);
     }
 }
